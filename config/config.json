@@ -83,13 +83,13 @@
     ]
   },
   "stats": [
-    { "value": 120, "suffix": "+", "label": "projects shipped" },
-    { "value": 80, "suffix": "+", "label": "happy clients" },
-    { "value": 5, "suffix": "yr", "label": "experience" },
+    { "value": 5, "suffix": "+", "label": "projects shipped" },
+    { "value": 20, "suffix": "+", "label": "happy clients" },
+    { "value": 2.5, "suffix": "+ yrs", "label": "experience" },
     { "value": 99, "suffix": "%", "label": "satisfaction" }
   ],
   "about": {
-    "bio": "// studio profile\nconst zcraft = {\n  name: 'ZCraft Studios',\n  mission: 'premium developer studio',\n  focus: ['plugins', 'servers', 'resources'],\n  quality: 'production-ready',\n  delivery: 'fast & polished',\n};\n\n// studio dedicated to excellence",
+    "bio": "// studio profile\nconst zcraft = {\n  name: 'ZCraft Studios',\n  mission: 'premium developer studio',\n  focus: ['Websites', 'servers', 'resources'],\n  quality: 'production-ready',\n  delivery: 'fast & polished',\n};\n\n// studio dedicated to excellence",
     "skills": [
       { "name": "Plugin Development", "value": 95 },
       { "name": "Server Architecture", "value": 92 },
@@ -99,16 +99,16 @@
     ],
     "techGroups": [
       { "label": "backend", "tags": ["Java", "Paper", "Spigot", "MySQL", "Node.js"] },
-      { "label": "frontend", "tags": ["HTML", "CSS", "JavaScript", "TypeScript"] },
-      { "label": "infrastructure", "tags": ["Docker", "Linux", "Git", "CI/CD"] }
+      { "label": "frontend", "tags": ["HTML", "CSS", "JavaScript", "TypeScript"] ,
+      { "label": "Bots", "tags": ["Discord", "NodeJS", "Git", "Python"] }
     ]
   },
   "team": [
     {
       "name": "Zain Abusal",
       "role": "Founder & Lead Developer",
-      "pfp": "https://starlightskins.lunareclipse.studio/render/head/zraxgaming/bust",
-      "bio": "Passionate Minecraft developer with 2+ years of experience building plugins and server systems. Focused on performance and user experience.",
+      "pfp": "https://i.postimg.cc/T1sXX0Jj/image-2026-05-08-164555500.png",
+      "bio": "Passionate Minecraft developer with 2+ years of experience building websites and server systems. Focused on performance and user experience.",
       "level": 999
     }
     
@@ -143,66 +143,37 @@
   ],
   "resources": [
     {
-      "image": "https://starlightskins.lunareclipse.studio/render/head/zraxgaming/face",
-      "title": "Optimized server.properties",
-      "brand": "config",
-      "summary": "Battle-tested server.properties tuned for performance and stability.",
-      "tags": ["config", "performance"],
-      "status": "free",
+      "image": "https://builtbybit.com/attachments/image_2026-05-06_233252176-png.1320307/?preset=cardr1",
+      "title": "Evidence Discord Bot",
+      "brand": "Bot",
+      "summary": "Best discord bot for performance and handling user cases and moderation.",
+      "tags": ["Simple", "performance"],
+      "status": "5.38$",
       "featured": true,
-      "category": "config",
-      "links": [{ "label": "download", "href": "https://Zain.z-craft.xyz", "variant": "primary" }]
+      "category": "bot",
+      "links": [{ "label": "View", "href": "https://builtbybit.com/resources/evidence-bot-discord-case-evidence.106805/", "variant": "primary" }]
     },
     {
-      "image": "https://starlightskins.lunareclipse.studio/render/walking/zraxgaming/full",
-      "title": "Paper Plugin Starter",
-      "brand": "template",
+      "image": "https://builtbybit.com/attachments/image_2026-05-03_191731571-png.1315793/?preset=cardr1",
+      "title": "Minecraft Community Website",
+      "brand": "Website",
       "summary": "Modern Paper plugin starter with Gradle, command framework, and config system.",
-      "tags": ["Java", "Paper", "Gradle"],
-      "status": "free",
+      "tags": ["Web", "Multi-page", "Full setup"],
+      "status": "16.98$",
       "featured": false,
-      "category": "template",
-      "links": [{ "label": "github", "href": "https://Zain.z-craft.xyz", "variant": "primary" }]
-    },
-    {
-      "image": "https://starlightskins.lunareclipse.studio/render/ultimate/zraxgaming/full",
-      "title": "ZCraft UI Kit",
-      "brand": "kit",
-      "summary": "Terminal-inspired UI kit with windows, cards, and tokens for developer sites.",
-      "tags": ["CSS", "UI", "kit"],
-      "status": "premium",
-      "featured": true,
-      "category": "ui",
-      "links": [{ "label": "preview", "href": "https://Zain.z-craft.xyz", "variant": "primary" }]
+      "category": "website",
+      "links": [{ "label": "View", "href": "https://builtbybit.com/resources/minecraft-community-hub.101610/", "variant": "primary" }]
     }
   ],
   "reviews": [
     {
-      "name": "Alex M.",
-      "handle": "@alexm",
-      "avatar": "https://starlightskins.lunareclipse.studio/render/head/notch/face",
+      "name": "Almotasem",
+      "handle": "@almotasem",
+      "avatar": "https://cdn.discordapp.com/avatars/1179436345370869773/32ff2e76d9946f8d6a4d116d95dd9955.webp?size=60",
       "rating": 5,
-      "text": "Shipped a custom plugin in days. Clean code, great docs, zero issues in production.",
-      "date": "2023-10-15",
-      "project": "Custom Economy Plugin"
-    },
-    {
-      "name": "Sora K.",
-      "handle": "@sorak",
-      "avatar": "https://starlightskins.lunareclipse.studio/render/head/jeb_/face",
-      "rating": 4.5,
-      "text": "ZCraft built our entire server stack — fast, polished, and incredibly responsive.",
-      "date": "2023-09-20",
-      "project": "Full Server Setup"
-    },
-    {
-      "name": "Mira J.",
-      "handle": "@miraj",
-      "avatar": "https://starlightskins.lunareclipse.studio/render/head/dinnerbone/face",
-      "rating": 5,
-      "text": "Best web work I've commissioned. The terminal aesthetic is perfect for our studio.",
-      "date": "2023-08-10",
-      "project": "Studio Website"
+      "text": "Amazing work, Was available most of the day and finished work quickly.",
+      "date": "2026-5-7",
+      "project": "Minecraft Server Service Setup"
     }
   ],
   "contact": {
@@ -223,14 +194,14 @@
     "platforms": [
       { "platform": "email", "handle": "zain@z-craft.xyz", "meta": "business inquiries", "icon": "✉", "href": "mailto:zain@z-craft.xyz" },
       { "platform": "github", "handle": "@zraxgaming", "meta": "open source", "icon": "⌥", "href": "https://github.com/zraxgaming" },
-      { "platform": "website", "handle": "z-craft.xyz", "meta": "studio site", "icon": "◈", "href": "https://Zain.z-craft.xyz" },
-      { "platform": "twitter", "handle": "@zraxgaming", "meta": "updates", "icon": "𝕏", "href": "https://twitter.com/zraxgaming" }
+      { "platform": "website", "handle": "zain.z-craft.xyz", "meta": "portfolio", "icon": "◈", "href": "https://Zain.z-craft.xyz" },
+      { "platform": "twitter", "handle": "@zraxgaming", "meta": "updates", "icon": "𝕏", "href": "https://x.com/ZCraftNetwork" }
     ]
   },
   "footer": {
     "left": "ZCraft Studios — premium developer studio",
     "links": [
-      { "label": "github", "href": "https://github.com/zraxgaming" },
+      { "label": "github", "href": "https://github.com/zain-abusal" },
       { "label": "discord", "href": "https://discord.com/users/zraxgaming" },
       { "label": "email", "href": "mailto:zain@z-craft.xyz" }
     ]
