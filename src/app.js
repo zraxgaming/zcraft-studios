@@ -128,6 +128,28 @@
       </article>`;
   }
 
+  function resourceCard(r) {
+    const icons = { config: '⚙', template: '📦', kit: '🎨', ui: '✨', plugin: '🔧', other: '📄' };
+    const icon = icons[r.category] || icons.other;
+    return `
+      <article class="resource-card">
+        <div class="resource-icon">
+          <div style="font-size: 48px; color: var(--main); opacity: 0.4;">${icon}</div>
+        </div>
+        <div class="resource-content">
+          <div class="resource-head">
+            <h3 class="resource-name">${esc(r.title)}</h3>
+            <span class="resource-status">${esc(r.status)}</span>
+          </div>
+          <p class="resource-summary">${esc(r.summary)}</p>
+          <div class="tags">${(r.tags||[]).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+          <div class="resource-actions">
+            ${(r.links||[]).map(l => `<a class="btn btn-${l.variant||'primary'}" href="${esc(l.href)}" ${/^https?:/.test(l.href)?'target="_blank" rel="noopener"':''}>${esc(l.label)}</a>`).join('')}
+          </div>
+        </div>
+      </article>`;
+  }
+
   function reviewCard(r) {
     return `
       <div class="review-card">
@@ -279,29 +301,37 @@
       .replace(/\b(const|let|var|true|false)\b/g, '<span class="kw-fn">$1</span>')
       .replace(/\b(zain|name|studio|focus|stack|shipping)\b/g, '<span class="kw-var">$1</span>');
 
-    const bioBox = windowBox(`<span>~/</span>about.me`, `
-      <div class="section-label">// who we are</div>
-      <pre class="about-bio">${bioHL}</pre>
-    `);
+    const bioCard = `
+      <div class="about-card">
+        <div class="about-card-header">
+          <h3 class="about-card-title">// studio profile</h3>
+        </div>
+        <div class="about-card-content">
+          <pre class="about-bio">${bioHL}</pre>
+        </div>
+      </div>`;
 
-    const skillsHTML = `
-      <div class="section-label">// capabilities</div>
-      <div class="skills-list">
-        ${a.skills.map(s => `
-          <div class="skill-row">
-            <div class="skill-row-name">${esc(s.name)}</div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:${s.value}%"></div></div>
-            <div class="skill-pct">${s.value}%</div>
-          </div>`).join('')}
-      </div>
-      ${a.techGroups.map(g => `
-        <div class="tech-group">
-          <div class="tech-group-label">${esc(g.label)}</div>
-          <div class="tags">${g.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
-        </div>`).join('')}
-    `;
-
-    const skillsBox = windowBox(`<span>~/</span>stack.json`, skillsHTML);
+    const skillsCard = `
+      <div class="about-card">
+        <div class="about-card-header">
+          <h3 class="about-card-title">// capabilities</h3>
+        </div>
+        <div class="about-card-content">
+          <div class="skills-list">
+            ${a.skills.map(s => `
+              <div class="skill-row">
+                <div class="skill-row-name">${esc(s.name)}</div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width:${s.value}%"></div></div>
+                <div class="skill-pct">${s.value}%</div>
+              </div>`).join('')}
+          </div>
+          ${a.techGroups.map(g => `
+            <div class="tech-group">
+              <div class="tech-group-label">${esc(g.label)}</div>
+              <div class="tags">${g.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+            </div>`).join('')}
+        </div>
+      </div>`;
 
     return `
       <section class="page-hero page-hero-about">
@@ -309,8 +339,10 @@
         <h1>Studio-first craft for modern Minecraft products.</h1>
         <p class="page-copy">ZCraft Studios builds server systems, plugins, and web experiences for teams, communities, and creators. We combine design, performance, and polished delivery for commercial-grade releases.</p>
       </section>
-      <div class="page-grid">${bioBox}${skillsBox}</div>
-    `;
+      <div class="about-cards-grid">
+        ${bioCard}
+        ${skillsCard}
+      </div>`;
   }
 
   function renderPortfolio(cfg) {
@@ -361,95 +393,141 @@
 
   function renderResources(cfg) {
     const featured = cfg.resources.find(r => r.featured) || cfg.resources[0] || {};
-    const intro = `
+
+    const featuredCard = `
+      <div class="resource-featured-card">
+        <div class="resource-featured-header">
+          <div class="resource-featured-badge">${esc(featured.brand)} · ${esc(featured.status)}</div>
+          <h2 class="resource-featured-title">${esc(featured.title)}</h2>
+        </div>
+        <div class="resource-featured-content">
+          <p class="resource-featured-summary">${esc(featured.summary)}</p>
+          ${featured.links?.[0] ? `<a class="btn btn-primary" href="${esc(featured.links[0].href)}">${esc(featured.links[0].label)}</a>` : ''}
+        </div>
+      </div>`;
+
+    const resourceCards = cfg.resources.map(r => `
+      <div class="resource-card">
+        <div class="resource-card-header">
+          <div class="resource-card-icon">${r.category === 'config' ? '⚙' : r.category === 'template' ? '📦' : r.category === 'kit' ? '🎨' : r.category === 'ui' ? '✨' : r.category === 'plugin' ? '🔧' : '📄'}</div>
+          <div class="resource-card-status">${esc(r.status)}</div>
+        </div>
+        <div class="resource-card-content">
+          <h3 class="resource-card-title">${esc(r.title)}</h3>
+          <p class="resource-card-summary">${esc(r.summary)}</p>
+          <div class="resource-card-tags">${(r.tags||[]).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+          <div class="resource-card-actions">
+            ${(r.links||[]).map(l => `<a class="btn btn-${l.variant||'primary'}" href="${esc(l.href)}" ${/^https?:/.test(l.href)?'target="_blank" rel="noopener"':''}>${esc(l.label)}</a>`).join('')}
+          </div>
+        </div>
+      </div>`).join('');
+
+    return `
       <section class="page-hero page-hero-resources">
         <div class="page-label">// resources</div>
         <h1>Tools, configs, and kits built for real servers.</h1>
         <p class="page-copy">A studio-grade toolkit for server operators and plugin teams. Every download is designed to ship fast and scale cleanly.</p>
-      </section>`;
-
-    const highlight = windowBox(`<span>~/</span>resources.featured`, `
-      <div class="resource-highlight">
-        <div class="resource-status">${esc(featured.brand)} · ${esc(featured.status)}</div>
-        <h2>${esc(featured.title)}</h2>
-        <p>${esc(featured.summary)}</p>
-        ${featured.links?.[0] ? `<a class="link-sm" href="${esc(featured.links[0].href)}">${esc(featured.links[0].label)}</a>` : ''}
-      </div>
-    `, { class: 'window-highlight' });
-
-    const grid = windowBox(`<span>~/</span>resources.index`, `
-      <div class="section-label">// downloadable assets</div>
-      <div class="projects-grid">${cfg.resources.map(projectCard).join('')}</div>
-    `);
-    return intro + highlight + grid;
+      </section>
+      <div class="resources-layout">
+        ${featuredCard}
+        <div class="resources-grid">
+          ${resourceCards}
+        </div>
+      </div>`;
   }
 
   function renderContact(cfg) {
     const c = cfg.contact;
-    const shell = `
+
+    const contactCards = `
+      <div class="contact-cards-grid">
+        <div class="contact-info-card">
+          <div class="contact-info-header">
+            <h3 class="contact-info-title">// contact info</h3>
+          </div>
+          <div class="contact-info-content">
+            ${c.notes.map(n => `
+              <div class="contact-note-item">
+                <span class="contact-note-label">${esc(n.label)}</span>
+                <strong class="contact-note-value">${esc(n.value)}</strong>
+              </div>`).join('')}
+          </div>
+        </div>
+        <a class="contact-primary-card" href="${esc(c.primary.href)}" target="_blank" rel="noopener">
+          <div class="contact-primary-header">
+            <span class="contact-primary-badge">${esc(c.primary.badge)}</span>
+          </div>
+          <div class="contact-primary-content">
+            <span class="contact-primary-platform">${esc(c.primary.platform)}</span>
+            <span class="contact-primary-handle">${esc(c.primary.handle)}</span>
+            <span class="contact-primary-cta">${esc(c.primary.cta)}</span>
+          </div>
+        </a>
+      </div>`;
+
+    const platformCards = c.platforms.map(p => `
+      <a class="contact-platform-card" href="${esc(p.href)}" ${/^https?:|^mailto:/.test(p.href)?'target="_blank" rel="noopener"':''}>
+        <div class="contact-platform-icon">${esc(p.icon)}</div>
+        <div class="contact-platform-content">
+          <div class="contact-platform-name">${esc(p.platform)}</div>
+          <div class="contact-platform-handle">${esc(p.handle)}</div>
+          ${p.meta ? `<div class="contact-platform-meta">${esc(p.meta)}</div>` : ''}
+        </div>
+      </a>`).join('');
+
+    return `
       <section class="page-hero page-hero-contact">
         <div class="page-label">${esc(c.kicker)}</div>
         <h1>${esc(c.title)}</h1>
         <p class="page-copy">${esc(c.copy)}</p>
       </section>
-      <div class="contact-shell">
-        <div class="contact-lead">
-          <div class="contact-notes">
-            ${c.notes.map(n => `
-              <div class="contact-note-card">
-                <span class="contact-note-label">${esc(n.label)}</span>
-                <strong>${esc(n.value)}</strong>
-              </div>`).join('')}
-          </div>
+      ${contactCards}
+      <div class="contact-platforms-section">
+        <h3 class="contact-platforms-title">// all channels</h3>
+        <div class="contact-platforms-grid">
+          ${platformCards}
         </div>
-        <a class="contact-primary-card" href="${esc(c.primary.href)}" target="_blank" rel="noopener">
-          <span class="contact-primary-badge">${esc(c.primary.badge)}</span>
-          <span class="contact-primary-platform">${esc(c.primary.platform)}</span>
-          <span class="contact-primary-handle">${esc(c.primary.handle)}</span>
-          <span class="contact-primary-cta">${esc(c.primary.cta)}</span>
-        </a>
       </div>`;
-
-    const platforms = windowBox(`<span>~/</span>contact.channels`, `
-      <div class="section-label">// all channels</div>
-      <div class="contact-grid-fluid">
-        ${c.platforms.map(p => `
-          <a class="contact-item" href="${esc(p.href)}" ${/^https?:|^mailto:/.test(p.href)?'target="_blank" rel="noopener"':''}>
-            <div class="contact-icon">${esc(p.icon)}</div>
-            <div>
-              <div class="contact-text-platform">${esc(p.platform)}</div>
-              <div class="contact-text-handle">${esc(p.handle)}</div>
-              ${p.meta ? `<div class="contact-text-meta">${esc(p.meta)}</div>` : ''}
-            </div>
-          </a>`).join('')}
-      </div>
-    `);
-
-    return shell + '<div style="height:24px"></div>' + platforms;
   }
 
   function renderTeam(cfg) {
-    const intro = `
+    // Group team members by level (higher level = higher in pyramid)
+    const groupedByLevel = cfg.team.reduce((acc, member) => {
+      const level = member.level || 0;
+      if (!acc[level]) acc[level] = [];
+      acc[level].push(member);
+      return acc;
+    }, {});
+
+    // Sort levels from highest to lowest (999, 100, 0, etc.)
+    const sortedLevels = Object.keys(groupedByLevel).sort((a, b) => parseInt(b) - parseInt(a));
+
+    const pyramidRows = sortedLevels.map(level => {
+      const members = groupedByLevel[level];
+      const rowCards = members.map(member => `
+        <div class="team-member-card" data-level="${level}">
+          <div class="team-member-avatar">
+            <img src="${esc(member.pfp)}" alt="${esc(member.name)}" loading="lazy" />
+          </div>
+          <div class="team-member-content">
+            <h3 class="team-member-name">${esc(member.name)}</h3>
+            <p class="team-member-role">${esc(member.role)}</p>
+            <p class="team-member-bio">${esc(member.bio)}</p>
+          </div>
+        </div>`).join('');
+
+      return `<div class="team-pyramid-row" data-level="${level}">${rowCards}</div>`;
+    }).join('');
+
+    return `
       <section class="page-hero page-hero-team">
         <div class="page-label">// team</div>
         <h1>Built by a small but experienced studio crew.</h1>
         <p class="page-copy">Every release is reviewed, supported, and polished for real server environments. Meet the people who ship the experience.</p>
-      </section>`;
-    const teamHTML = windowBox(`<span>~/</span>team.members`, `
-      <div class="section-label">// core team</div>
-      <div class="team-grid">
-        ${cfg.team.map(member => `
-          <div class="team-card team-card-studio">
-            <img class="team-avatar" src="${esc(member.pfp)}" alt="${esc(member.name)}" loading="lazy" />
-            <div class="team-info">
-              <h3 class="team-name">${esc(member.name)}</h3>
-              <p class="team-role">${esc(member.role)}</p>
-              <p class="team-bio">${esc(member.bio)}</p>
-            </div>
-          </div>`).join('')}
-      </div>
-    `);
-    return intro + teamHTML;
+      </section>
+      <div class="team-pyramid">
+        ${pyramidRows}
+      </div>`;
   }
 
   function renderNotFound(cfg) {

@@ -40,8 +40,8 @@
     },
     "about": {
       "title": "About — ZCraft Studios",
-      "description": "About Zain Abusal — Minecraft developer delivering fast, polished resources and server systems.",
-      "keywords": "about, Zain Abusal, ZCraft, Minecraft developer",
+      "description": "Learn about ZCraft Studios — a premium developer studio crafting high-quality Minecraft plugins, server systems, and modern web experiences.",
+      "keywords": "about, ZCraft Studios, plugin development, Minecraft server, web design, developer studio",
       "canonical": "/about"
     },
     "contact": {
@@ -89,54 +89,55 @@
     { "value": 99, "suffix": "%", "label": "satisfaction" }
   ],
   "about": {
-    "bio": "// developer profile\nconst zain = {\n  name: 'Zain Abusal',\n  studio: 'ZCraft Studios',\n  focus: ['minecraft', 'plugins', 'web'],\n  stack: ['Java', 'JavaScript', 'TypeScript', 'Node'],\n  shipping: true,\n};\n\n// always building. always shipping.",
+    "bio": "// studio profile\nconst zcraft = {\n  name: 'ZCraft Studios',\n  mission: 'premium developer studio',\n  focus: ['plugins', 'servers', 'resources'],\n  quality: 'production-ready',\n  delivery: 'fast & polished',\n};\n\n// studio dedicated to excellence",
     "skills": [
-      { "name": "Java / Paper", "value": 95 },
-      { "name": "JavaScript", "value": 92 },
-      { "name": "Node.js", "value": 88 },
-      { "name": "HTML / CSS", "value": 94 },
-      { "name": "Server Ops", "value": 86 }
+      { "name": "Plugin Development", "value": 95 },
+      { "name": "Server Architecture", "value": 92 },
+      { "name": "Web Development", "value": 88 },
+      { "name": "System Design", "value": 90 },
+      { "name": "DevOps & Deployment", "value": 86 }
     ],
     "techGroups": [
-      { "label": "languages", "tags": ["Java", "JavaScript", "TypeScript", "SQL", "Bash"] },
-      { "label": "tools", "tags": ["Paper", "Spigot", "Node", "Vite", "Docker", "Git"] },
-      { "label": "design", "tags": ["Figma", "Photoshop", "Blockbench"] }
+      { "label": "backend", "tags": ["Java", "Paper", "Spigot", "MySQL", "Node.js"] },
+      { "label": "frontend", "tags": ["HTML", "CSS", "JavaScript", "TypeScript"] },
+      { "label": "infrastructure", "tags": ["Docker", "Linux", "Git", "CI/CD"] }
     ]
   },
   "team": [
     {
       "name": "Zain Abusal",
       "role": "Founder & Lead Developer",
-      "pfp": "https://starlightskins.lunareclipse.studio/render/head/zraxgaming/face",
-      "bio": "Passionate Minecraft developer with 5+ years of experience building plugins and server systems. Focused on performance and user experience."
+      "pfp": "https://starlightskins.lunareclipse.studio/render/head/zraxgaming/bust",
+      "bio": "Passionate Minecraft developer with 2+ years of experience building plugins and server systems. Focused on performance and user experience.",
+      "level": 999
     }
+    
   ],
   "projects": [
     {
-      "image": "https://starlightskins.lunareclipse.studio/render/dungeons/zraxgaming/full",
+      "image": "https://builtbybit.com/attachments/image_2026-05-03_191731571-png.1315793/?preset=cardr1",
       "title": "Minecraft Community Website",
       "brand": "Website",
-      "summary": "Modular core plugin powering economy, ranks, and cosmetics across modern Paper servers.",
-      "tags": ["Java", "Paper", "MySQL"],
+      "summary": "Modular Advanced Minecraft community hub built with React, Supabase, and Vite for lightning-fast performance.",
+      "tags": ["React", "Supabase", "Vite"],
       "status": "live",
       "featured": true,
-      "category": "plugin",
+      "category": "Website",
       "links": [
-        { "label": "view", "href": "https://Zain.z-craft.xyz", "variant": "primary" },
-        { "label": "docs", "href": "https://Zain.z-craft.xyz", "variant": "ghost" }
+        { "label": "view", "href": "https://builtbybit.com/resources/minecraft-community-hub.101610/", "variant": "primary" }
       ]
     },
     {
-      "image": "https://starlightskins.lunareclipse.studio/render/walking/zraxgaming/full",
+      "image": "https://builtbybit.com/attachments/image_2026-05-06_233252176-png.1320307/?preset=cardr1",
       "title": "Evidence Discord Bot",
       "brand": "Discord Bot",
-      "summary": "Turnkey Minecraft server setup with optimized configs, plugins, and hosting guidance.",
+      "summary": "Effiecent and secure Discord bot for managing evidence in community moderation, built with Node.js",
       "tags": ["Paper", "Configs", "Ops"],
       "status": "available",
       "featured": true,
-      "category": "service",
+      "category": "Bot",
       "links": [
-        { "label": "request", "href": "/contact", "variant": "primary" }
+        { "label": "View", "href": "https://builtbybit.com/resources/evidence-bot-discord-case-evidence.106805/", "variant": "primary" }
       ]
     }
   ],
@@ -227,7 +228,7 @@
     ]
   },
   "footer": {
-    "left": "ZCraft Studios — crafted by Zain Abusal",
+    "left": "ZCraft Studios — premium developer studio",
     "links": [
       { "label": "github", "href": "https://github.com/zraxgaming" },
       { "label": "discord", "href": "https://discord.com/users/zraxgaming" },
