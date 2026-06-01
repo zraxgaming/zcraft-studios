@@ -7,7 +7,7 @@
     "year": 2026
   },
   "branding": {
-    "favicon": "/favicon.svg",
+    "favicon": "/favicon.ico",
     "logo": "https://i.postimg.cc/Bn1xPNRW/IMG-3484.png",
     "ogImage": "https://i.postimg.cc/Bn1xPNRW/IMG-3484.png",
     "themeColor": "#ef4444"
@@ -68,12 +68,6 @@
       "title": "Request Custom Service — ZCraft Studios",
       "description": "Submit a custom service request for Minecraft plugins, server configs, Discord bot work, or web development.",
       "keywords": "custom service request, minecraft plugins request, minecraft configs request, discord bot development request, ZCraft Studios",
-      "canonical": "/request"
-    },
-    "notfound": {
-      "title": "Request Custom Service — ZCraft Studios",
-      "description": "Submit a custom service request with Discord username, email, budget, and work details. The form sends your request directly to the studio.",
-      "keywords": "request, custom service, Discord, service request, ZCraft Studios",
       "canonical": "/request"
     },
     "notfound": {
