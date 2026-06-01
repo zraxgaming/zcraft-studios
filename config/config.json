@@ -350,7 +350,7 @@
       "summary": "Best discord bot for performance and handling user cases and moderation.",
       "tags": ["Simple", "performance"],
       "status": "5.38$",
-      "featured": true,
+      "featured": false,
       "category": "bot",
       "links": [
         {
@@ -399,8 +399,8 @@
       "brand": "Proxy Auth",
       "summary": "Proxy-first authentication for Minecraft networks. Authenticates players at the proxy, syncs login state securely across backend servers, and blocks movement, commands, inventory, and combat until login completes.",
       "tags": ["Proxy", "Authentication", "Minecraft", "Velocity", "Paper"],
-      "status": "live",
-      "featured": false,
+      "status": "Free",
+      "featured": true,
       "category": "plugin",
       "links": [
         {
